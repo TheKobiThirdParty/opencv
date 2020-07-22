@@ -204,7 +204,7 @@ endif()
 # ----------------------------------------------------------------------------
 
 OCV_OPTION(OPENCV_ENABLE_NONFREE "Enable non-free algorithms" OFF)
-
+include(kobi_opencv_config.cmake)
 # 3rd party libs
 OCV_OPTION(OPENCV_FORCE_3RDPARTY_BUILD   "Force using 3rdparty code from source" OFF)
 OCV_OPTION(BUILD_ZLIB               "Build zlib from source"             (WIN32 OR APPLE OR OPENCV_FORCE_3RDPARTY_BUILD) )
@@ -568,7 +568,7 @@ ocv_include_directories(${OPENCV_CONFIG_FILE_INCLUDE_DIR})
 # ----------------------------------------------------------------------------
 #  Path for additional modules
 # ----------------------------------------------------------------------------
-set(OPENCV_EXTRA_MODULES_PATH "" CACHE PATH "Where to look for additional OpenCV modules (can be ;-separated list of paths)")
+set(OPENCV_EXTRA_MODULES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../opencv_contrib/modules" CACHE PATH "Where to look for additional OpenCV modules")
 
 # ----------------------------------------------------------------------------
 #  Autodetect if we are in a GIT repository
