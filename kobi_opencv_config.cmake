@@ -1,21 +1,21 @@
 # CUDA related flags
-find_package(CUDA)
-message(STATUS "CUDA FOUND ${CUDA_FOUND}")
-if (CUDA_FOUND)
-    message(STATUS "Found CUDA installed.")
+# find_package(CUDA)
+# message(STATUS "CUDA FOUND ${CUDA_FOUND}")
+# if (CUDA_FOUND)
+#     message(STATUS "Found CUDA installed.")
  
-    if(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
-        set(CUDA_ARCH_BIN "72" CACHE STRING "cuda: target arquitecture" FORCE)
-    else()
-        CUDA_DETECT_INSTALLED_GPUS(OPENCV_CUDA_ARCH_BIN)
-        set(CUDA_ARCH_BIN ${OPENCV_CUDA_ARCH_BIN} CACHE STRING "cuda: target arquitecture" FORCE)
-    endif()
+#     if(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
+#         set(CUDA_ARCH_BIN "72" CACHE STRING "cuda: target arquitecture" FORCE)
+#     else()
+#         CUDA_DETECT_INSTALLED_GPUS(OPENCV_CUDA_ARCH_BIN)
+#         set(CUDA_ARCH_BIN ${OPENCV_CUDA_ARCH_BIN} CACHE STRING "cuda: target arquitecture" FORCE)
+#     endif()
 
-    set(WITH_CUDA ON CACHE BOOL "cuda: enabling cuda support" FORCE)
+    set(WITH_CUDA OFF CACHE BOOL "cuda: enabling cuda support" FORCE)
     set(CUDA_ARCH_PTX "" CACHE STRING "cuda-arch-ptx: ptx " FORCE)
-    set(WITH_CUBLAS ON CACHE BOOL "cuda: cublas enabled" FORCE)
+    set(WITH_CUBLAS OFF CACHE BOOL "cuda: cublas enabled" FORCE)
 
-endif()
+# endif()
 
 # Other miscellaneous OpenCV flags
 set(WITH_LIBV4L ON CACHE BOOL "v4l: vision for linux enabled" FORCE)
