@@ -204,7 +204,6 @@ endif()
 # ----------------------------------------------------------------------------
 
 OCV_OPTION(OPENCV_ENABLE_NONFREE "Enable non-free algorithms" OFF)
-include(kobi_opencv_config.cmake)
 # 3rd party libs
 OCV_OPTION(OPENCV_FORCE_3RDPARTY_BUILD   "Force using 3rdparty code from source" OFF)
 OCV_OPTION(BUILD_ZLIB               "Build zlib from source"             (WIN32 OR APPLE OR OPENCV_FORCE_3RDPARTY_BUILD) )
@@ -503,6 +502,8 @@ if(ENABLE_IMPL_COLLECTION)
 endif()
 
 set(OPENCV_MATHJAX_RELPATH "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0" CACHE STRING "URI to a MathJax installation")
+
+include(kobi_opencv_config.cmake)
 
 # ----------------------------------------------------------------------------
 #  Get actual OpenCV version number from sources
